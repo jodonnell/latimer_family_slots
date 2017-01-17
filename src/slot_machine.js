@@ -1,7 +1,8 @@
 class SlotMachine {
-    constructor(players) {
+    constructor($container, players) {
+        this.$container = $container;
         this.players = players;
-        this.handle = new Handle($('.arm'), this);
+        this.handle = new Handle(this.$container.find('.arm'), this);
     }
 
     isWin() {
@@ -18,6 +19,7 @@ class SlotMachine {
     }
 
     activate() {
-
+        this.$container.find('.ring').addClass('active');
+        //this.$container.find('.ring').css('-webkit-animation-duration', '4.5s');
     }
 }

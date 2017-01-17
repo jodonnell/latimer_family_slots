@@ -3,7 +3,7 @@ describe("Handle", () => {
 
     beforeEach(() => {
         $('body').append('<div class="arm"></div>');
-        slotMachine = new SlotMachine([]);
+        slotMachine = new SlotMachine($(''), []);
         spyOn(slotMachine, "activate");
         handle = new Handle($('.arm'), slotMachine);
     });

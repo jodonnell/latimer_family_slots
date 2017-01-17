@@ -1,14 +1,19 @@
-describe("SlotMachine", function() {
+describe("SlotMachine", () => {
     var slotMachine;
 
-    beforeEach(function() {
+    beforeEach(() => {
         this.dollop = new Player('Dollop');
         this.elsie = new Player('Elsie');
+        $('body').append('<div class="machine"><div class="ring"></div></div>');
 
-        slotMachine = new SlotMachine([this.dollop, this.elsie]);
+        slotMachine = new SlotMachine($('.machine'), [this.dollop, this.elsie]);
     });
 
-    it("can see if its a winner", function() {
+    afterEach(() => {
+        $('.ring').remove();
+    });
+
+    it("can see if its a winner", () => {
         slotMachine._random = () => {return 0.9;};
         expect(slotMachine.isWin()).toEqual(true);
 
@@ -16,9 +21,14 @@ describe("SlotMachine", function() {
         expect(slotMachine.isWin()).toEqual(false);
     });
 
-    it("can pick a winner", function() {
+    it("can pick a winner", () => {
         slotMachine._random = () => {return 0.9;};
         expect(slotMachine.pickWinner()).toEqual(this.elsie);
+    });
+
+    it("can activate", () => {
+        slotMachine.activate();
+        expect($('.ring').hasClass('active')).toEqual(true);
     });
 
 });

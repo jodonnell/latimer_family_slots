@@ -57,9 +57,7 @@ body {
 		left: 10px;
 		width: 100px;
 		height: 107px;
-		opacity: 1;
-		color: rgba(0,0,0,0.9);
-
+		background-image: url("https://placekitten.com/g/133/142");
 }
 
 .poster > p {
