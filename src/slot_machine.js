@@ -1,6 +1,7 @@
 class SlotMachine {
     constructor(players) {
         this.players = players;
+        this.handle = new Handle($('.arm'), this);
     }
 
     isWin() {
@@ -14,5 +15,9 @@ class SlotMachine {
 
     _random() {
         return Math.random();
+    }
+
+    activate() {
+
     }
 }

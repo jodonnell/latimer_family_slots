@@ -1,9 +1,11 @@
 describe("Handle", () => {
-    var handle;
+    var handle, slotMachine;
 
     beforeEach(() => {
         $('body').append('<div class="arm"></div>');
-        handle = new Handle($('.arm'));
+        slotMachine = new SlotMachine([]);
+        spyOn(slotMachine, "activate");
+        handle = new Handle($('.arm'), slotMachine);
     });
 
     afterEach(() => {
@@ -22,6 +24,11 @@ describe("Handle", () => {
             expect($('.arm').hasClass('clicked')).toEqual(false);
             done();
         }, 2);
+    });
+
+    it('makes the machine spin', () => {
+        $('.arm').click();
+        expect(slotMachine.activate).toHaveBeenCalled();
     });
 
 });

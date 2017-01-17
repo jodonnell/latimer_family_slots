@@ -37,8 +37,11 @@ body {
 		-webkit-transform-style: preserve-3d;
 		-webkit-animation-iteration-count: infinite;
 		-webkit-animation-timing-function: linear;
-		-webkit-animation-name: x-spin;
 		-webkit-animation-duration: 2s;
+}
+
+.ring.active {
+		-webkit-animation-name: x-spin;
 }
 
 .ring > :nth-child(odd) {
